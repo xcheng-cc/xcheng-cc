@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 临时文件
+*.log
+*.tmp
+
+# 敏感信息(养成习惯,虽然这个仓库目前没有)
+.env
+.env.local
+*.key
+secrets/
