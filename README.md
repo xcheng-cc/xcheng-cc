@@ -13,6 +13,7 @@ NAS · 本地化 AI · 个人知识管理 · 公众号「晓城笔记」作者
 
 ### 数字产品
 
+- [**西城小升初 2026 志愿填报助手**](https://xicheng-xsc-report.pages.dev) · 填报评估与个性化志愿报告 · 基础版免费 / 完整版 ¥99
 - [**微信 + NAS + Obsidian AI Agent 完整部署方案包**](https://afdian.com/item/80bf902239fe11f1921552540025c377) · ¥99
 - [**NAS + Obsidian 多端同步完整配置包**](https://afdian.com/item/3ce4bcd8309e11f18f9a52540025c377) · ¥29
 
