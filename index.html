@@ -124,7 +124,7 @@
     }
     .articles li:last-child a { border-bottom: 0; padding-bottom: 0; }
     .articles .t { flex: 1; min-width: 0; }
-    .articles .hot { font-size: 12px; padding: 1px 8px; border-radius: 999px; background: #C2552E; color: #fff; font-weight: 500; white-space: nowrap; }
+    .articles .pre { color: var(--muted); font-size: 13px; margin-right: 8px; }
     .articles .arrow { color: var(--amber); transition: transform .2s; }
     .articles a:hover .t { color: var(--amber); }
     .articles a:hover .arrow { transform: translateX(3px); }
@@ -153,6 +153,31 @@
     a.btn.primary:hover { opacity: .88; color: var(--bg); }
     .btn svg { width: 16px; height: 16px; flex: none; }
     .btn b { font-weight: 600; }
+
+    button.btn { font: inherit; cursor: pointer; }
+    button.btn:hover { border-color: var(--amber); color: var(--amber); }
+
+    dialog {
+      margin: auto; border: 0; padding: 0; border-radius: 20px;
+      background: var(--surface); color: var(--text);
+      box-shadow: 0 24px 64px -16px rgba(0, 0, 0, .35);
+    }
+    dialog::backdrop { background: rgba(23, 19, 14, .55); backdrop-filter: blur(2px); }
+    dialog[open] { animation: pop .18s ease-out; }
+    @keyframes pop { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+    .sheet { padding: 28px 28px 20px; text-align: center; width: min(300px, calc(100vw - 48px)); }
+    /* 二维码始终白底，深色模式下也要能扫 */
+    .sheet img { display: block; width: 200px; height: 200px; margin: 0 auto; padding: 8px; background: #fff; border-radius: 12px; }
+    .sheet-title { margin-top: 14px; font-weight: 600; color: var(--brown); }
+    .sheet-hint { font-size: 13px; color: var(--muted); }
+    .sheet-close {
+      margin-top: 16px; width: 100%; padding: 9px; border-radius: 10px; cursor: pointer;
+      font: inherit; font-size: 14px; color: var(--muted); background: transparent; border: 1px solid var(--line);
+    }
+    .sheet-close:hover { color: var(--amber); border-color: var(--amber); }
+    /* 弹窗打开时焦点会自动落到“关闭”上：鼠标/触摸打开不显示焦点框，键盘操作时用主题色 */
+    .sheet-close:focus { outline: none; }
+    .sheet-close:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
     footer { margin-top: 72px; color: var(--muted); font-size: 13px; text-align: center; }
 
@@ -211,13 +236,11 @@
         </a>
 
         <div class="card wide">
-          <div class="meta"><span class="kind">知识管理</span><span class="status off">方案 · 3 篇文章</span></div>
+          <div class="meta"><span class="kind">知识管理</span><span class="status off">方案</span></div>
           <h3>NAS 个人知识库方案</h3>
           <p>笔记资料放在自家 NAS，不交给云服务：电脑、iPhone 多端同步 Obsidian，还能在微信里让 AI 查询和整理。</p>
           <ul class="articles">
-            <li><a href="https://mp.weixin.qq.com/s/9scMDZ8to5xi_6AIaWOULQ" target="_blank" rel="noopener"><span class="t">我是怎么把 NAS 变成真正能用的知识库的</span><span class="hot">3 万+ 阅读</span><span class="arrow">→</span></a></li>
-            <li><a href="https://mp.weixin.qq.com/s/cUNmJ-SwU797C3x3fjiiqA" target="_blank" rel="noopener"><span class="t">NAS + Obsidian：夺回你的数字主权</span><span class="arrow">→</span></a></li>
-            <li><a href="https://mp.weixin.qq.com/s/n2nKIdSTvQEn15CAdbfcNg" target="_blank" rel="noopener"><span class="t">不装 App，不管同步，我用微信操作知识库</span><span class="arrow">→</span></a></li>
+            <li><a href="https://mp.weixin.qq.com/s/9scMDZ8to5xi_6AIaWOULQ" target="_blank" rel="noopener"><span class="t"><span class="pre">阅读</span>我是怎么把 NAS 变成真正能用的知识库的</span><span class="arrow">→</span></a></li>
           </ul>
         </div>
 
@@ -242,12 +265,22 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           hi@xcheng.cc
         </a>
-        <span class="btn">
+        <button class="btn" type="button" onclick="document.getElementById('mp-qr').showModal()">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
           公众号 <b>晓城笔记</b>
-        </span>
+        </button>
       </div>
     </section>
+
+    <!-- 点背景关闭：点击落在 dialog 自身（而不是内部的 .sheet）时就是点在遮罩上 -->
+    <dialog id="mp-qr" onclick="if (event.target === this) this.close()">
+      <div class="sheet">
+        <img src="wechat-mp-qr.jpg" alt="公众号「晓城笔记」二维码" width="200" height="200">
+        <p class="sheet-title">公众号「晓城笔记」</p>
+        <p class="sheet-hint">微信扫一扫，或在手机上长按识别</p>
+        <button type="button" class="sheet-close" onclick="this.closest('dialog').close()">关闭</button>
+      </div>
+    </dialog>
 
     <footer>© 2026 Xiao Cheng · xcheng.cc</footer>
   </div>
