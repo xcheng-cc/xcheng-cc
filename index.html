@@ -116,10 +116,18 @@
     .card h3 .arrow { color: var(--amber); font-weight: 400; transition: margin .2s; }
     a.card:hover .arrow { margin-left: 4px; }
     .card p { font-size: 14.5px; color: var(--muted); margin-top: 6px; }
-    .links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 14px; padding-top: 12px; border-top: 1px dashed var(--line); font-size: 14px; }
-    .links a { color: var(--brown); border-bottom: 1px solid var(--amber); }
-    .links a:hover { color: var(--amber); }
-    .links span { color: var(--muted); }
+    .articles { list-style: none; margin-top: 14px; border-top: 1px dashed var(--line); }
+    .articles a {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 0; border-bottom: 1px dashed var(--line);
+      font-size: 15px; color: var(--brown);
+    }
+    .articles li:last-child a { border-bottom: 0; padding-bottom: 0; }
+    .articles .t { flex: 1; min-width: 0; }
+    .articles .hot { font-size: 12px; padding: 1px 8px; border-radius: 999px; background: #C2552E; color: #fff; font-weight: 500; white-space: nowrap; }
+    .articles .arrow { color: var(--amber); transition: transform .2s; }
+    .articles a:hover .t { color: var(--amber); }
+    .articles a:hover .arrow { transform: translateX(3px); }
 
     /* ---------- 经历 ---------- */
     .career-lead { font-size: 16px; margin-bottom: 16px; }
@@ -203,19 +211,14 @@
         </a>
 
         <div class="card wide">
-          <div class="meta"><span class="kind">知识管理</span><span class="status live">可用</span></div>
+          <div class="meta"><span class="kind">知识管理</span><span class="status off">方案 · 3 篇文章</span></div>
           <h3>NAS 个人知识库方案</h3>
           <p>笔记资料放在自家 NAS，不交给云服务：电脑、iPhone 多端同步 Obsidian，还能在微信里让 AI 查询和整理。</p>
-          <div class="links">
-            <a href="https://afdian.com/item/3ce4bcd8309e11f18f9a52540025c377" target="_blank" rel="noopener">多端同步配置包</a>
-            <a href="https://afdian.com/item/80bf902239fe11f1921552540025c377" target="_blank" rel="noopener">微信 AI 部署包</a>
-          </div>
-          <div class="links">
-            <span>文章</span>
-            <a href="https://mp.weixin.qq.com/s/cUNmJ-SwU797C3x3fjiiqA" target="_blank" rel="noopener">夺回你的数字主权</a>
-            <a href="https://mp.weixin.qq.com/s/9scMDZ8to5xi_6AIaWOULQ" target="_blank" rel="noopener">让 NAS 成为知识库</a>
-            <a href="https://mp.weixin.qq.com/s/n2nKIdSTvQEn15CAdbfcNg" target="_blank" rel="noopener">用微信操作知识库</a>
-          </div>
+          <ul class="articles">
+            <li><a href="https://mp.weixin.qq.com/s/9scMDZ8to5xi_6AIaWOULQ" target="_blank" rel="noopener"><span class="t">我是怎么把 NAS 变成真正能用的知识库的</span><span class="hot">3 万+ 阅读</span><span class="arrow">→</span></a></li>
+            <li><a href="https://mp.weixin.qq.com/s/cUNmJ-SwU797C3x3fjiiqA" target="_blank" rel="noopener"><span class="t">NAS + Obsidian：夺回你的数字主权</span><span class="arrow">→</span></a></li>
+            <li><a href="https://mp.weixin.qq.com/s/n2nKIdSTvQEn15CAdbfcNg" target="_blank" rel="noopener"><span class="t">不装 App，不管同步，我用微信操作知识库</span><span class="arrow">→</span></a></li>
+          </ul>
         </div>
 
       </div>
@@ -238,10 +241,6 @@
         <a class="btn primary" href="mailto:hi@xcheng.cc">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
           hi@xcheng.cc
-        </a>
-        <a class="btn" href="https://linkedin.com/in/xchengcc" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-          LinkedIn
         </a>
         <span class="btn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
