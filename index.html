@@ -129,16 +129,12 @@
     .articles a:hover .t { color: var(--amber); }
     .articles a:hover .arrow { transform: translateX(3px); }
 
-    /* ---------- 经历 ---------- */
-    .career-lead { font-size: 16px; margin-bottom: 16px; }
-    .career { list-style: none; border-top: 1px solid var(--line); }
-    .career li {
-      display: grid; grid-template-columns: 112px 1fr; gap: 16px;
-      padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px;
-    }
-    .career .co { color: var(--brown); font-weight: 600; }
-    .career .what { color: var(--text); }
-    .career .what span { color: var(--muted); }
+    /* ---------- 背景 ---------- */
+    .bg-lead { font-size: 16px; max-width: 620px; }
+    .bg-cos { margin-top: 14px; font-size: 13px; color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 4px 0; }
+    .bg-cos span { color: var(--brown); font-weight: 600; letter-spacing: .5px; }
+    .bg-cos span::before { content: "·"; color: var(--line); margin: 0 10px; font-weight: 400; }
+    .bg-cos span:first-child::before { content: ""; margin: 0 0 0 10px; }
 
     /* ---------- 联系 ---------- */
     .contact { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -187,7 +183,6 @@
       .name { font-size: 26px; }
       .statement { margin-top: 36px; }
       .grid { grid-template-columns: 1fr; }
-      .career li { grid-template-columns: 76px 1fr; gap: 12px; font-size: 14.5px; }
       section { margin-top: 52px; }
     }
   </style>
@@ -248,14 +243,9 @@
     </section>
 
     <section>
-      <div class="label">经历</div>
-      <p class="career-lead">在大厂带质量与工程效能团队十余年，擅长把复杂系统拆清楚、做成工具。</p>
-      <ul class="career">
-        <li><span class="co">字节跳动</span><span class="what">TikTok Live 质量负责人</span></li>
-        <li><span class="co">美团</span><span class="what">数据科学与平台部质量负责人</span></li>
-        <li><span class="co">去哪儿</span><span class="what">Noah 环境管理平台负责人 <span>· 872 名工程师在用</span></span></li>
-        <li><span class="co">IBM · GE</span><span class="what">职业起点</span></li>
-      </ul>
+      <div class="label">背景</div>
+      <p class="bg-lead">此前在大厂带团队做质量与研发效率，日常就是把复杂的流程拆清楚、做成一键可用的工具。现在把同样的事，交给 AI 来做。</p>
+      <p class="bg-cos">曾任职 <span>字节跳动</span><span>美团</span><span>去哪儿</span><span>IBM</span><span>GE</span></p>
     </section>
 
     <section>
